@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Nos" representedClassName="Nos" syncable="YES">
+        <attribute name="noDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="noNote" optional="YES" attributeType="String"/>
+        <relationship name="reason" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reason" inverseName="nos" inverseEntity="Reason"/>
+    </entity>
+    <entity name="Reason" representedClassName="Reason" syncable="YES">
+        <attribute name="reasonDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="reasonTitle" optional="YES" attributeType="String"/>
+        <relationship name="nos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Nos" inverseName="reason" inverseEntity="Nos"/>
+        <relationship name="yes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Yes" inverseName="reason" inverseEntity="Yes"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="reasonTitle"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Yes" representedClassName="Yes" syncable="YES">
+        <attribute name="yesDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="yesNote" optional="YES" attributeType="String"/>
+        <relationship name="reason" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reason" inverseName="yes" inverseEntity="Reason"/>
+    </entity>
+    <elements>
+        <element name="Reason" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Nos" positionX="-54" positionY="-9" width="128" height="74"/>
+        <element name="Yes" positionX="-36" positionY="9" width="128" height="74"/>
+    </elements>
+</model>
